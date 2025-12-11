@@ -3,6 +3,7 @@ import 'package:torredorelogio/screens/10past/FrontDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/FirstSceneFloor1.dart';
 import 'package:torredorelogio/screens/10past/floor1/GoOutDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/LittleBoxScene.dart';
+import 'package:torredorelogio/screens/10past/floor1/OpenedBox.dart';
 import 'package:torredorelogio/screens/10past/floor1/PaintingPast10.dart';
 import 'package:torredorelogio/screens/front_door.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/Painting_scene.dart';
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
         '/passado10LittleBox': (context) => Littleboxscene(),
         '/passado10PortaIrEmBora': (context) => Gooutdoorpast10(),
         '/passado10Pintura': (context) => Paintingpast10(),
+        '/caixaAberta': (context) => Openedbox(),
         
 
       },

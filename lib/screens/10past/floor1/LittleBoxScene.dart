@@ -103,7 +103,7 @@ class _LittleboxsceneState extends State<Littleboxscene> {
                                             onPressed: (){
                                               bool resultado = locklogic.tryToOpenLittleBoxFloor1(passwordLock.text);
                                               if(resultado){
-                                                Navigator.pushNamed(context, "");
+                                                Navigator.pushNamed(context, "/caixaAberta");
                                               }
                                             },
                                             child: Text("Abrir"),
