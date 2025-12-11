@@ -33,7 +33,7 @@ class _Paintingpast10State extends State<Paintingpast10> {
             width: 0.45, 
             icone: Icons.remove_red_eye_sharp, 
             onTap: (){
-              
+              dowload.saveFile("assets/FotoPintura.png", "FotoPintura.png");
             }
           ),
 
