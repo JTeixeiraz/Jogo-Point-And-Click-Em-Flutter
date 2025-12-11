@@ -1,0 +1,34 @@
+name: torredorelogio
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  audioplayers: ^6.5.1
+  file_picker: ^10.3.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/cena1Presente.png
+    - assets/interiorRadio.png
+    - assets/radio.wav
+    - assets/interiorPintura.png
+    - assets/visaoPorta.png
+    - assets/pinturaZoomed.png
+    - assets/mesaCaixinha.png
+    - assets/PortaFrentePassado10.png
+    - assets/InteriorPassado10.png
+    - assets/mesaCaixinha10.png
+    - assets/portaSairPassado10.png
+    - assets/pinturaPassad10.png
