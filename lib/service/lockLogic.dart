@@ -6,4 +6,13 @@ class Locklogic {
       return false;
     }
   }
+
+
+  bool tryToOpenLittleBoxFloor1(String n){
+    if(n == "ATEMPORAL"){
+      return true;
+    }else{
+      return false;
+    }
+  } 
 }
