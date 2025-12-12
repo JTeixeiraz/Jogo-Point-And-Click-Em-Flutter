@@ -9,6 +9,10 @@ import 'package:torredorelogio/screens/front_door.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/Painting_scene.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/doorPov_scene.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/presentBoxTable.dart';
+import 'package:torredorelogio/screens/present/floor2Scenes/firstSceneFloor2.dart';
+import 'package:torredorelogio/screens/present/floor2Scenes/fourthScreenFloor2.dart';
+import 'package:torredorelogio/screens/present/floor2Scenes/seconfSceneFloor2.dart';
+import 'package:torredorelogio/screens/present/floor2Scenes/thirdSceneFloor2.dart';
 import 'package:torredorelogio/screens/present/inside_floor1.dart';
 
 void main() {
@@ -24,8 +28,8 @@ class MainApp extends StatelessWidget {
       title: 'Torre Do Relogio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF10141F),
-      ),
+      scaffoldBackgroundColor: const Color(0xFF10141F)
+    ),
       initialRoute: '/',
       routes: {
         '/': (context) => FrontDoor(),
@@ -39,7 +43,10 @@ class MainApp extends StatelessWidget {
         '/passado10PortaIrEmBora': (context) => Gooutdoorpast10(),
         '/passado10Pintura': (context) => Paintingpast10(),
         '/caixaAberta': (context) => Openedbox(),
-        
+        '/segundoAndarPresente': (context) => Firstscenefloor2(),
+        '/segundoAndarEsquerda': (context) => Seconfscenefloor2(),
+        '/segundoAndarDireita': (context) => Thirdscenefloor2(),
+        '/segundoAndarTras': (context) => Fourthscreenfloor2(),
 
       },
     );

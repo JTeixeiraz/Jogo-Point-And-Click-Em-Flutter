@@ -14,5 +14,13 @@ class Locklogic {
     }else{
       return false;
     }
+  }
+
+  bool openDoorToSecondFloor(String n){
+    if(n == "ESTIGMA"){
+      return true;
+    }else{
+      return false;
+    }
   } 
 }

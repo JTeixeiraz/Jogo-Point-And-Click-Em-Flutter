@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:torredorelogio/Widgets/PlayerButtonRadio.dart';
+import 'package:torredorelogio/service/lockLogic.dart';
 
 class InsideFloor1 extends StatefulWidget {
   InsideFloor1({Key? key}) : super(key: key);
@@ -9,6 +10,8 @@ class InsideFloor1 extends StatefulWidget {
 }
 
 class _InsideFloor1State extends State<InsideFloor1> {
+
+  Locklogic logic = new Locklogic();
 
   bool unlockDoor = false;
 
@@ -253,7 +256,10 @@ class _InsideFloor1State extends State<InsideFloor1> {
                                               padding: const EdgeInsets.all(10)
                                             ),
                                             onPressed: (){
-                                              
+                                              bool resultado = logic.openDoorToSecondFloor(passwordLock.text);
+                                              if(resultado){
+                                                Navigator.pushNamed(context, "/segundoAndarPresente");
+                                              }
                                             },
                                             child: Text("Abrir"),
                                           ),
