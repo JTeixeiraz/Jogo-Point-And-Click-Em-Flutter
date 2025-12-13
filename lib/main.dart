@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:torredorelogio/ComputerPuzzle/Windows.dart';
+import 'package:torredorelogio/ComputerPuzzle/apps/Navegador.dart';
 import 'package:torredorelogio/screens/10past/FrontDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/FirstSceneFloor1.dart';
 import 'package:torredorelogio/screens/10past/floor1/GoOutDoorPast10.dart';
@@ -30,7 +32,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
       scaffoldBackgroundColor: const Color(0xFF10141F)
     ),
-      initialRoute: '/',
+      initialRoute: '/windows',
       routes: {
         '/': (context) => FrontDoor(),
         '/interiorPresenteRadio': (context) => InsideFloor1(),
@@ -47,7 +49,8 @@ class MainApp extends StatelessWidget {
         '/segundoAndarEsquerda': (context) => Seconfscenefloor2(),
         '/segundoAndarDireita': (context) => Thirdscenefloor2(),
         '/segundoAndarTras': (context) => Fourthscreenfloor2(),
-
+        '/windows': (context) => Windows(),
+        '/navegador': (context) =>Navegador(),
       },
     );
   }

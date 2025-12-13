@@ -29,7 +29,7 @@ class _Firstscenefloor2State extends State<Firstscenefloor2> {
             width: 0.475, 
             icone: Icons.open_in_new, 
             onTap: (){
-
+              Navigator.pushNamed(context, '/windows');
             }
           ),
 
