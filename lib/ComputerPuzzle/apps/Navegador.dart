@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:torredorelogio/ComputerPuzzle/site/MainSite.dart';
 import 'package:torredorelogio/ComputerPuzzle/site/estigma.dart';
+import 'package:torredorelogio/ComputerPuzzle/site/pecado.dart';
+import 'package:torredorelogio/ComputerPuzzle/site/sangue.dart';
+import 'package:torredorelogio/ComputerPuzzle/site/tempo.dart';
 
 class Navegador extends StatefulWidget {
   Navegador({Key? key}) : super(key: key);
@@ -13,21 +16,44 @@ class _NavegadorState extends State<Navegador> {
   final TextEditingController _urlController = TextEditingController();
   String currentUrl = 'https://www.google.com';
   String nomeAba = "Nova Aba";
-
+  Color bakground = Colors.white;
 
   
   void pesquisar(String url){
-    switch(url){
+    switch(url.toLowerCase()){
       case "estigma.web":
       site = Estigma();
       setState(() {
         nomeAba = "Estigma";
+        this.bakground = Colors.white;
       });
       break;
-
+      case "pecado.web":
+      site = Pecado();
+      setState(() {
+        nomeAba = "pecado";
+        this.bakground = Colors.black;
+      });
+      break;
+      case "tempo.web":
+      site = Tempo();
+      setState(() {
+        nomeAba = "PARDAL";
+        this.bakground = Colors.black;
+      });
+      break;
+      case "sangue.web":
+      site = Sangue();
+      setState(() {
+        nomeAba = "Sangue";
+        this.bakground = Colors.white;
+      });
+      break;
+    
       default:
       nomeAba = "Nova Aba";
       site = Mainsite();
+      this.bakground = Colors.white;
       break;
     }
   }
@@ -57,7 +83,7 @@ class _NavegadorState extends State<Navegador> {
   Widget build(BuildContext context) {
     return Positioned.fill(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: this.bakground,
         body: Column(
           children: [
             // Barra de navegação superior
