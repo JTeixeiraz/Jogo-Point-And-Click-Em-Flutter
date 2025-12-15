@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:torredorelogio/ComputerPuzzle/apps/Arquivos.dart';
 import 'package:torredorelogio/ComputerPuzzle/apps/Navegador.dart';
 
 class Windows extends StatefulWidget {
@@ -13,17 +14,31 @@ class _WindowsState extends State<Windows> {
   bool showStartMenu = false;
   String currentTime = '';
 
-  bool abrirApppSenha = false;
+  bool navegadorAberto = false;
 
-  void abrirAppSenha(){
+  bool exploresAberto = false;
+
+  void abrirExplorer(){
     setState(() {
-      abrirApppSenha = true;
+      exploresAberto = true;
     });
   }
 
-  void fecharAppSenha(){
+  void fecharExplorer(){
     setState(() {
-      abrirApppSenha = false;
+      exploresAberto = false;
+    });
+  }
+
+  void abrirNavegador(){
+    setState(() {
+      navegadorAberto = true;
+    });
+  }
+
+  void fecharNavegador(){
+    setState(() {
+      navegadorAberto = false;
     });
   }
 
@@ -48,7 +63,7 @@ class _WindowsState extends State<Windows> {
     return Scaffold(
       body: Stack(
         children: [
-          if(!abrirApppSenha)
+          if(!navegadorAberto || !exploresAberto)
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -61,22 +76,16 @@ class _WindowsState extends State<Windows> {
               ),
             ),
           ),
-          if(!abrirApppSenha)
+          if(!navegadorAberto || !exploresAberto)
           Positioned.fill(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildDesktopIcon(Icons.computer, 'Este Computador', (){}),
+                  _buildDesktopIcon(Icons.folder, 'Documentos', abrirExplorer),
                   const SizedBox(height: 20),
-                  _buildDesktopIcon(Icons.folder, 'Documentos', (){}),
-                  const SizedBox(height: 20),
-                  _buildDesktopIcon(Icons.delete, 'Lixeira',(){}),
-                  const SizedBox(height: 20),
-                  _buildDesktopIcon(Icons.image, 'Imagens', (){}),
-                  const SizedBox(height: 20),
-                  _buildDesktopIcon(Icons.lock, '???', abrirAppSenha),
+                  _buildDesktopIcon(Icons.lock, '???', (){}),
                 ],
               ),
             ),
@@ -89,8 +98,11 @@ class _WindowsState extends State<Windows> {
             ),
 
           
-          if(abrirApppSenha)
+          if(navegadorAberto)
           Navegador(),
+
+          if(exploresAberto)
+          Arquivos(),
 
 
           Positioned(
@@ -216,10 +228,10 @@ class _WindowsState extends State<Windows> {
             ),
           ),
           // Pinned Apps
-          _buildTaskbarIcon(Icons.folder_open),
-          _buildTaskbarIcon(Icons.language),
-          _buildTaskbarIcon(Icons.mail),
-          _buildTaskbarIcon(Icons.photo),
+          _buildTaskbarIcon(Icons.folder_open, abrirExplorer),
+          _buildTaskbarIcon(Icons.language, abrirNavegador),
+          _buildTaskbarIcon(Icons.mail, () {},),
+          _buildTaskbarIcon(Icons.photo, (){}),
           const Spacer(),
           // System Tray
           _buildSystemTrayIcon(Icons.arrow_drop_up),
@@ -269,9 +281,9 @@ class _WindowsState extends State<Windows> {
     );
   }
 
-  Widget _buildTaskbarIcon(IconData icon) {
+  Widget _buildTaskbarIcon(IconData icon, VoidCallback onTap) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: 48,
         height: 48,
