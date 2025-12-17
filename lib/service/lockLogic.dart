@@ -23,4 +23,14 @@ class Locklogic {
       return false;
     }
   } 
+
+
+  bool openSecondFloorDoor(String n){
+    if(n == "INSANIDADE"){
+      return true;
+    }else
+    {
+      return false;
+    }
+  }
 }

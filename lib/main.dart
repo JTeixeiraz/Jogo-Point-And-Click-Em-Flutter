@@ -7,6 +7,10 @@ import 'package:torredorelogio/screens/10past/floor1/GoOutDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/LittleBoxScene.dart';
 import 'package:torredorelogio/screens/10past/floor1/OpenedBox.dart';
 import 'package:torredorelogio/screens/10past/floor1/PaintingPast10.dart';
+import 'package:torredorelogio/screens/10past/floor2/bookScreen.dart';
+import 'package:torredorelogio/screens/10past/floor2/computerScene.dart';
+import 'package:torredorelogio/screens/10past/floor2/paredeScreen.dart';
+import 'package:torredorelogio/screens/10past/floor2/portaSaidaScreen.dart';
 import 'package:torredorelogio/screens/front_door.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/Painting_scene.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/doorPov_scene.dart';
@@ -32,7 +36,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
       scaffoldBackgroundColor: const Color(0xFF10141F)
     ),
-      initialRoute: '/windows',
+      initialRoute: '/',
       routes: {
         '/': (context) => FrontDoor(),
         '/interiorPresenteRadio': (context) => InsideFloor1(),
@@ -51,6 +55,11 @@ class MainApp extends StatelessWidget {
         '/segundoAndarTras': (context) => Fourthscreenfloor2(),
         '/windows': (context) => Windows(),
         '/navegador': (context) =>Navegador(),
+        //passadoSegundoAndar
+        '/cena1passado10segundo': (context) => ComputerscenePast(),
+        '/cenaDireitaPassado10segundo': (context) => BookscreenPast(),
+        '/cenaEsquerdaPassado10segundo': (context) => Paredescreenpast(),
+        '/cenaTrasPassado10segundo': (context) => PortasaidascreenPast()
       },
     );
   }

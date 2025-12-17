@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:torredorelogio/Widgets/Icons/IconeAction.dart';
 import 'package:torredorelogio/Widgets/Icons/LeftIcon.dart';
 import 'package:torredorelogio/Widgets/Icons/RigthIcon.dart';
+import 'package:torredorelogio/service/lockLogic.dart';
 
 class Thirdscenefloor2 extends StatefulWidget {
   Thirdscenefloor2({Key? key}) : super(key: key);
@@ -31,6 +32,9 @@ class _Thirdscenefloor2State extends State<Thirdscenefloor2> {
 
   @override
   Widget build(BuildContext context) {
+
+    Locklogic lock = new Locklogic();
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
@@ -100,7 +104,10 @@ class _Thirdscenefloor2State extends State<Thirdscenefloor2> {
                                               padding: const EdgeInsets.all(10)
                                             ),
                                             onPressed: (){
-                                              
+                                              bool resultado = lock.openSecondFloorDoor(senha.text.toUpperCase());
+                                              if(resultado){
+
+                                              }
                                             },
                                             child: Text("Abrir"),
                                           ),

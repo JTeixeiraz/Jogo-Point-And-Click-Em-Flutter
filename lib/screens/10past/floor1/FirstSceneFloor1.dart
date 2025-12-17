@@ -29,7 +29,7 @@ class _Firstscenefloor1State extends State<Firstscenefloor1> {
             width: 0.28, 
             icone: Icons.door_back_door, 
             onTap: (){
-
+              Navigator.pushNamed(context, "/cena1passado10segundo");
             }
           ),
 
