@@ -252,7 +252,7 @@ class _FrontDoorState extends State<FrontDoor> {
                                           const SizedBox(height: 20,),
                                           ElevatedButton(
                                             onPressed: () {
-                                              Navigator.pushNamed(context, '/passado10');
+                                              Navigator.pushNamed(context, '/passado100');
                                             },
                                             child: Text("100", style: TextStyle(color: Colors.white),),
                                           )

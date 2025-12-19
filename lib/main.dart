@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:torredorelogio/ComputerPuzzle/Windows.dart';
 import 'package:torredorelogio/ComputerPuzzle/apps/Navegador.dart';
+import 'package:torredorelogio/screens/100past/onlyPast100.dart';
 import 'package:torredorelogio/screens/10past/FrontDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/FirstSceneFloor1.dart';
 import 'package:torredorelogio/screens/10past/floor1/GoOutDoorPast10.dart';
@@ -77,7 +78,8 @@ class MainApp extends StatelessWidget {
         '/passadoTerceiroAndar': (context) => Visaorelogiopassado(),
         '/paredeVaziaPassado': (context) => Paredevaziapassado(),
         '/paredeImagensPassado': (context) => Visaoimagenspassado(),
-        '/paredeSairPassado': (context) => Portasairpassado()
+        '/paredeSairPassado': (context) => Portasairpassado(),
+        '/passado100': (context) => Onlypast100()
       },
     );
   }
