@@ -106,7 +106,7 @@ class _Thirdscenefloor2State extends State<Thirdscenefloor2> {
                                             onPressed: (){
                                               bool resultado = lock.openSecondFloorDoor(senha.text.toUpperCase());
                                               if(resultado){
-
+                                                Navigator.pushNamed(context, "/presenteTerceiroAndar");
                                               }
                                             },
                                             child: Text("Abrir"),

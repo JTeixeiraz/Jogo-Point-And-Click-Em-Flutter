@@ -102,6 +102,16 @@ class _BookscreenPastState extends State<BookscreenPast> {
               fit: BoxFit.cover,
             ),
           ),
+
+          IconeWidget(
+            height: 0.55, 
+            width: 0.75, 
+            icone: Icons.door_back_door, 
+            onTap: (){
+              Navigator.pushNamed(context, '/passadoTerceiroAndar');
+            }
+          ),
+
           IconeWidget(
             height: 0.55, 
             width: 0.47, 

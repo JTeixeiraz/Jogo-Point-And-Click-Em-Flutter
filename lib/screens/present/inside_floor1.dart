@@ -256,7 +256,7 @@ class _InsideFloor1State extends State<InsideFloor1> {
                                               padding: const EdgeInsets.all(10)
                                             ),
                                             onPressed: (){
-                                              bool resultado = logic.openDoorToSecondFloor(passwordLock.text);
+                                              bool resultado = logic.openDoorToSecondFloor(passwordLock.text.toUpperCase());
                                               if(resultado){
                                                 Navigator.pushNamed(context, "/segundoAndarPresente");
                                               }

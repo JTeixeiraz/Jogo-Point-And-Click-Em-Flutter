@@ -11,6 +11,10 @@ import 'package:torredorelogio/screens/10past/floor2/bookScreen.dart';
 import 'package:torredorelogio/screens/10past/floor2/computerScene.dart';
 import 'package:torredorelogio/screens/10past/floor2/paredeScreen.dart';
 import 'package:torredorelogio/screens/10past/floor2/portaSaidaScreen.dart';
+import 'package:torredorelogio/screens/10past/floor3/paredeVaziaPassado.dart';
+import 'package:torredorelogio/screens/10past/floor3/portaSairPassado.dart';
+import 'package:torredorelogio/screens/10past/floor3/visaoImagensPassado.dart';
+import 'package:torredorelogio/screens/10past/floor3/visaoRelogioPassado.dart';
 import 'package:torredorelogio/screens/front_door.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/Painting_scene.dart';
 import 'package:torredorelogio/screens/present/floor1Scenes/doorPov_scene.dart';
@@ -19,6 +23,10 @@ import 'package:torredorelogio/screens/present/floor2Scenes/firstSceneFloor2.dar
 import 'package:torredorelogio/screens/present/floor2Scenes/fourthScreenFloor2.dart';
 import 'package:torredorelogio/screens/present/floor2Scenes/seconfSceneFloor2.dart';
 import 'package:torredorelogio/screens/present/floor2Scenes/thirdSceneFloor2.dart';
+import 'package:torredorelogio/screens/present/floor3Scenes/aloneWall.dart';
+import 'package:torredorelogio/screens/present/floor3Scenes/firstSceneFloor3.dart';
+import 'package:torredorelogio/screens/present/floor3Scenes/paredeImagens.dart';
+import 'package:torredorelogio/screens/present/floor3Scenes/paredeSair.dart';
 import 'package:torredorelogio/screens/present/inside_floor1.dart';
 
 void main() {
@@ -59,7 +67,17 @@ class MainApp extends StatelessWidget {
         '/cena1passado10segundo': (context) => ComputerscenePast(),
         '/cenaDireitaPassado10segundo': (context) => BookscreenPast(),
         '/cenaEsquerdaPassado10segundo': (context) => Paredescreenpast(),
-        '/cenaTrasPassado10segundo': (context) => PortasaidascreenPast()
+        '/cenaTrasPassado10segundo': (context) => PortasaidascreenPast(),
+        //presente terceiro andar
+        '/presenteTerceiroAndar': (context) => Firstscenefloor3(),
+        '/presenteTerceiroAndarSair': (context) => Paredesair(),
+        '/paredeVazia': (context) => Alonewall(),
+        '/paredeImagem': (context) => Paredeimagens(),
+        //passado terceiro andar
+        '/passadoTerceiroAndar': (context) => Visaorelogiopassado(),
+        '/paredeVaziaPassado': (context) => Paredevaziapassado(),
+        '/paredeImagensPassado': (context) => Visaoimagenspassado(),
+        '/paredeSairPassado': (context) => Portasairpassado()
       },
     );
   }
