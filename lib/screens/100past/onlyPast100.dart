@@ -85,7 +85,7 @@ class _Onlypast100State extends State<Onlypast100> {
                                   ),
                                   width: double.infinity,
                                   child: Expanded(
-                                    child: Image.asset('assets/papel100.png'),
+                                    child: Image.asset('assets/verdadeiroPapel.png'),
                                   )
                                 ),
                               )

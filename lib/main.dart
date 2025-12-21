@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:torredorelogio/ComputerPuzzle/Windows.dart';
 import 'package:torredorelogio/ComputerPuzzle/apps/Navegador.dart';
+import 'package:torredorelogio/ComputerPuzzle/apps/password.dart';
 import 'package:torredorelogio/screens/100past/onlyPast100.dart';
 import 'package:torredorelogio/screens/10past/FrontDoorPast10.dart';
 import 'package:torredorelogio/screens/10past/floor1/FirstSceneFloor1.dart';
@@ -62,7 +63,12 @@ class MainApp extends StatelessWidget {
         '/segundoAndarEsquerda': (context) => Seconfscenefloor2(),
         '/segundoAndarDireita': (context) => Thirdscenefloor2(),
         '/segundoAndarTras': (context) => Fourthscreenfloor2(),
-        '/windows': (context) => Windows(),
+        '/windows': (context) {
+          final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+          return Windows(
+            senhaDesbloqueada: args?['senhaDesbloqueada'] ?? false,
+          );
+        },
         '/navegador': (context) =>Navegador(),
         //passadoSegundoAndar
         '/cena1passado10segundo': (context) => ComputerscenePast(),
@@ -79,7 +85,9 @@ class MainApp extends StatelessWidget {
         '/paredeVaziaPassado': (context) => Paredevaziapassado(),
         '/paredeImagensPassado': (context) => Visaoimagenspassado(),
         '/paredeSairPassado': (context) => Portasairpassado(),
-        '/passado100': (context) => Onlypast100()
+        '/passado100': (context) => Onlypast100(),
+        //pcParanormal
+        '/password': (context) => Password()
       },
     );
   }

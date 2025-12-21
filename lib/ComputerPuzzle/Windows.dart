@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:torredorelogio/ComputerPuzzle/apps/Arquivos.dart';
 import 'package:torredorelogio/ComputerPuzzle/apps/Navegador.dart';
+import 'package:torredorelogio/ComputerPuzzle/apps/PCParanormal.dart';
 
 class Windows extends StatefulWidget {
-  Windows({Key? key}) : super(key: key);
+  final bool senhaDesbloqueada;
+  
+  Windows({Key? key, this.senhaDesbloqueada = false}) : super(key: key);
   
   @override
   _WindowsState createState() => _WindowsState();
@@ -15,8 +18,16 @@ class _WindowsState extends State<Windows> {
   String currentTime = '';
 
   bool navegadorAberto = false;
-
   bool exploresAberto = false;
+  bool appSecretoAberto = false;
+  bool senhaDesbloqueada = false;
+
+  @override
+  void initState() {
+    super.initState();
+    senhaDesbloqueada = widget.senhaDesbloqueada;
+    _updateTime();
+  }
 
   void abrirExplorer(){
     setState(() {
@@ -42,11 +53,16 @@ class _WindowsState extends State<Windows> {
     });
   }
 
+  void abrirAppSecreto(){
+    setState(() {
+      appSecretoAberto = true;
+    });
+  }
 
-  @override
-  void initState() {
-    super.initState();
-    _updateTime();
+  void fecharAppSecreto(){
+    setState(() {
+      appSecretoAberto = false;
+    });
   }
 
   void _updateTime() {
@@ -63,7 +79,7 @@ class _WindowsState extends State<Windows> {
     return Scaffold(
       body: Stack(
         children: [
-          if(!navegadorAberto || !exploresAberto)
+          if(!navegadorAberto || !exploresAberto || !appSecretoAberto)
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -76,7 +92,7 @@ class _WindowsState extends State<Windows> {
               ),
             ),
           ),
-          if(!navegadorAberto || !exploresAberto)
+          if(!navegadorAberto || !exploresAberto || !appSecretoAberto)
           Positioned.fill(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -85,7 +101,13 @@ class _WindowsState extends State<Windows> {
                 children: [
                   _buildDesktopIcon(Icons.folder, 'Documentos', abrirExplorer),
                   const SizedBox(height: 20),
-                  _buildDesktopIcon(Icons.lock, '???', (){}),
+                  _buildDesktopIcon(Icons.lock, '???', (){
+                    Navigator.pushNamed(context, '/password');
+                  }),
+                  const SizedBox(height: 20),
+                  // Novo ícone que só aparece se a senha foi desbloqueada
+                  if(senhaDesbloqueada)
+                    _buildDesktopIcon(Icons.webhook_sharp, 'Tempo', abrirAppSecreto),
                 ],
               ),
             ),
@@ -104,6 +126,9 @@ class _WindowsState extends State<Windows> {
           if(exploresAberto)
           Arquivos(),
 
+          // Novo app secreto
+          if(appSecretoAberto)
+          Pcparanormal(),
 
           Positioned(
             left: 0,
@@ -112,6 +137,96 @@ class _WindowsState extends State<Windows> {
             child: _buildTaskbar(),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildAppSecreto() {
+    return Container(
+      color: Colors.black.withOpacity(0.9),
+      child: Center(
+        child: Container(
+          width: 600,
+          height: 400,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                blurRadius: 20,
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(8),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.vpn_key, color: Colors.white),
+                    const SizedBox(width: 8),
+                    const Text(
+                      'App Secreto Desbloqueado!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      icon: const Icon(Icons.close, color: Colors.white),
+                      onPressed: fecharAppSecreto,
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.check_circle,
+                          color: Colors.green,
+                          size: 80,
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Parabéns!',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Você desbloqueou o conteúdo secreto!',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -232,6 +347,8 @@ class _WindowsState extends State<Windows> {
           _buildTaskbarIcon(Icons.language, abrirNavegador),
           _buildTaskbarIcon(Icons.mail, () {},),
           _buildTaskbarIcon(Icons.photo, (){}),
+          if(senhaDesbloqueada)
+            _buildTaskbarIcon(Icons.vpn_key, abrirAppSecreto),
           const Spacer(),
           // System Tray
           _buildSystemTrayIcon(Icons.arrow_drop_up),
