@@ -9,7 +9,7 @@ class Password extends StatefulWidget {
 
 class _PasswordState extends State<Password> {
   final TextEditingController password = TextEditingController();
-  final String senhaCorreta = "SENHA123"; // <<< ALTERE AQUI PARA SUA SENHA
+  final String senhaCorreta = "25439324"; // <<< ALTERE AQUI PARA SUA SENHA
   String mensagemErro = "";
 
   void verificarSenha() {
