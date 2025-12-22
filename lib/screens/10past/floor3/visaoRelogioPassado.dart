@@ -14,7 +14,7 @@ class _VisaorelogiopassadoState extends State<Visaorelogiopassado> {
 
   String _VerSeHomemPodeApareder(){
     final int horaAtual = DateTime.now().hour;
-    if(horaAtual < 15){
+    if(horaAtual < 5){
       return 'assets/visaoRelogioHomemPassado.png';
     }else{
       return 'assets/visaoRelogioPassado.png';

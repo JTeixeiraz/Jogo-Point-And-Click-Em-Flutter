@@ -15,7 +15,7 @@ class _Firstscenefloor3State extends State<Firstscenefloor3> {
 
   String _VerSeHomemPodeApareder(){
     final int horaAtual = DateTime.now().hour;
-    if(horaAtual < 18){
+    if(horaAtual < 5){
       return 'assets/visaoRelogioHomem.png';
     }
     return 'assets/visaoRelogio.png';
