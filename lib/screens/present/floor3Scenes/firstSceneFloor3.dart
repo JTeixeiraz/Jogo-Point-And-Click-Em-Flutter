@@ -50,7 +50,7 @@ class _Firstscenefloor3State extends State<Firstscenefloor3> {
             height: 0.45, 
             width: 0.10, 
             icone: Icons.spatial_tracking_outlined, 
-            onTap: (){}
+            onTap: abrirModal
           ),
 
 
